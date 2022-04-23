@@ -15,7 +15,8 @@ const Question = (props) => {
   // insert the correct answer into the incorrect answers
   if (allAnswers.length === 0) { // make sure this only happens once
     const answers = [...data.incorrect_answers]  // make a copy of the incorrect answers (best to not modify props)
-    answers.splice(Math.floor(Math.random() * (allAnswers.length + 1)), 0, data.correct_answer) // randomize position
+    const randomSpot = Math.floor(Math.random() * (answers.length + 1))
+    answers.splice(randomSpot, 0, data.correct_answer) // randomize position
     setAllAnswers(answers) 
   }
 
